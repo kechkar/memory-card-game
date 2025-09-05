@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #c569ae;
+}
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: #560042;
+    padding: 40px 60px;
+}
+h2{
+    color: #fff;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.reset {
+    padding: 15px 20px;
+    color:#c569ae;
+   font-size: 1.5em;
+    text-transform: uppercase;
+    border: none;
+    background: #fff;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    font-weight: 600;
+}
+.reset:focus {
+    color: #fff;
+    background: #c569ae;
+}
+.game {
+    width: 430px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+.item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    background: #fff;
+    transform: rotateY(180deg);
+    transition: 0.25s; 
+    
+}
+/* Style for an opened memory card */
+.item.boxpen {
+    transform: rotateY(0deg);
+}
+/* Style for the back of the memory card */
+.item::after {
+    content: "";
+    position: absolute;
+    inset:0 ;
+    background: #e688cf;
+    transition: 0.25s; 
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+/* Style for the back of the memory card when matched */
+.boxOpen:after,
+.boxMatch:after
+{
+    transform: rotateY(180deg);
+}
